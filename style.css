@@ -1,3 +1,7 @@
+.wrap {
+    padding: 10px;
+}
+
 
 .cell {
     border: 1px solid black;
@@ -9,4 +13,10 @@
     text-align: center;
     color: black;
     font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+.resulteGame {
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
 }
