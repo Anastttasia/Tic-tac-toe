@@ -2,6 +2,55 @@ let isGameStopped = false;
 
 let arrData = document.querySelectorAll("[data-num]");
 
+
+let playerFigure = 'x';
+let botFigure = 'o';
+
+
+
+
+let choiceFigure = () =>{
+    let modalBack = document.createElement('div');
+    modalBack.className = 'modalWindowBackground';
+
+    let choiceContainer = document.createElement('div');
+    choiceContainer.className = 'resultContainer';
+
+    let textChoce = document.createElement('div');
+    textChoce.className = 'textResult';
+    textChoce.innerText = 'Выберите фигуру';
+    
+    let cross = document.createElement('div');
+    cross.className = 'figursModalWindow';
+    cross.innerText = 'x';
+
+    let zero = document.createElement('div');
+    zero.className = 'figursModalWindow';
+    zero.innerText = 'o';
+
+    let contaonerFigure = document.createElement('div');
+    contaonerFigure.className = 'contaonerFigure';
+    contaonerFigure.appendChild(cross);
+    contaonerFigure.appendChild(zero);
+
+    choiceContainer.appendChild(textChoce);
+    choiceContainer.appendChild(contaonerFigure);
+
+    modalBack.appendChild(choiceContainer);
+    document.body.appendChild(modalBack);
+
+    cross.addEventListener("click", deleteResultModal)
+      
+
+    if(zero.addEventListener("click", deleteResultModal)){
+        playerFigure = 'o';
+        botFigure = 'x';
+    }
+    
+}
+
+choiceFigure();
+
 function clearGameCells() {
     for (var i = 0; i < arrData.length; i++) {
         arrData[i].textContent = null;
@@ -84,7 +133,7 @@ function botMove() {
         randIndex = Math.floor(Math.random() * arrData.length);
         randElement = arrData[randIndex];
         if (randElement.textContent) continue;
-        randElement.textContent = "o"
+        randElement.textContent = botFigure;
         break;
     };
 
@@ -135,17 +184,19 @@ function deleteResultModal() {
 }
 
 
+
+
 //INIT GAME
 for (var i = 0; i < arrData.length; i++) {
+
     arrData[i].addEventListener("click", function (event) {
 
         if (isGameStopped) return;
 
         if (event.target.textContent) return;
 
-        event.target.style.color = "back";
-        event.target.textContent = "x";
-        // event.target.textContent = playerFigure;
+        event.target.style.color = "black";
+        event.target.textContent = playerFigure;
 
         checkWin();
 
