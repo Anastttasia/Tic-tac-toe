@@ -1,8 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    background-color: #102031;
+    color: #eeeeee;
+}
+
+.heaer {
+    background-color: #333333;
+}
+
+.main{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerScore{
+    width: 326px;
+    font-size: 20px;
+    margin: 0;
+    padding:  0 20px 0 20px;
+    display: flex;
+    flex-flow: column;
+}
+
+.score{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin: 0;
 }
 
 .content {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.styleContainerScore{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.infoBlock{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 0;
+    font-size: 20px;
+}
+
+.wrap {
+    padding: 10px;
+}
+
+.scoreGame{
+    font-size: 40px;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -10,24 +72,16 @@ body {
     align-items: center;
 }
 
-.wrap {
-
-    padding: 10px;
-}
-
-.scoreGame{
-    font-size: 40px;
-}
-
 .cell {
-    border: 1px solid black;
+    border: 1px solid #eeeeee;
+    background-color: #0b344d;
+    border-radius: 10%;
     width: 100px;
     height: 100px;
     display: table-cell;
     font-size: 60px;
     font-weight: 500;
     text-align: center;
-    color: black;
 }
 
 .modalWindowBackground {
@@ -65,27 +119,29 @@ body {
     width: 180px;
     height: 80px;
     margin: 45px 0 10px 0;
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color: rgba(11, 52, 77, 0.6);
     font-size: 30px;
+    border-radius: 5%;
 }
 
 .buttonAgain:hover {
-    box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 6px 3px rgba(0, 0, 0, 0.3);
 }
 
 .buttonJustClose {
     width: 180px;
     height: 30px;
     margin: 10px;
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color:  rgba(11, 52, 77, 0.6);
     font-size: 20px;
+    border-radius: 5%;
 }
 
 .buttonJustClose:hover {
-    box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 6px 3px rgba(0, 0, 0, 0.3);
 }
 
-.contaonerFigure {
+.containerFigures {
     width: 90%;
     height: 90%;
     display: flex;
@@ -94,10 +150,11 @@ body {
     align-items: center;
 }
 
-.figursModalWindow {
+.figuresModalWindow {
     width: 160px;
     height: 160px;
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color: rgba(11, 52, 77, 0.6);
+    border-radius: 10%;
     font-size: 140px;
     color: black;
     margin: 30px;
@@ -106,14 +163,32 @@ body {
     justify-content: center;
 }
 
-.figursModalWindow:hover {
-    box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+.figuresModalWindow:hover {
+    box-shadow: 2px 6px 3px rgba(0, 0, 0, 0.3);
+}
+
+.buttonAgainInGame {
+    width: 150px;
+    height: 70px;
+    margin: 45px 0 10px 0;
+    background-color: rgba(11, 52, 77, 0.6);
+    font-size: 20px;
+    border: 1px solid #eeeeee;
+    border-radius: 5%;
+    color: #eeeeee;
+}
+
+.buttonAgainInGame:hover {
+    box-shadow: 2px 6px 3px rgba(0, 0, 0, 0.3);
 }
 
 
 
-
 @media screen and (max-width: 553px) {
+
+    .styleContainerScore{
+        justify-content: space-around;
+    }
 
     .resultContainer {
         width: 60vw;
@@ -124,10 +199,52 @@ body {
         font-size: 25px;
     }
 
-    .figursModalWindow {
-        width: 80px;
-        height: 80px;
+    .figuresModalWindow {
+        width: 100px;
+        height: 100px;
         font-size: 100px;
         margin: 20px;
+    }
+
+    .buttonAgain {
+        width: 150px;
+        height: 60px;
+        margin: 30px 0 8px 0;
+        font-size: 25px;
+    }
+
+    .buttonJustClose {
+        width: 150px;
+        height: 25px;
+        margin: 10px;
+        font-size: 18px;
+    }
+    
+}
+
+@media screen and (max-width: 360px) {
+
+    .score{
+        font-size: 30px;
+    }
+    
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 50px;
+    }
+
+    .resultContainer {
+        width: 60vw;
+        height: 20vh;
+    }
+
+    .textResult {
+        font-size: 25px;
+    }
+
+    .figuresModalWindow {
+        font-size: 80px;
+        margin: 10px;
     }
 }

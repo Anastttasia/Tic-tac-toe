@@ -1,153 +1,93 @@
 let isGameStopped = false;
 
-let arrData = document.querySelectorAll("[data-num]");
+let cellElementsArray = document.querySelectorAll("[data-num]");
 
+let scoreBot = 0;
+let scorePlayer = 0;
 
 let playerFigure = 'x';
 let botFigure = 'o';
 
+let isBotTurn = false;
 
 
-
-let choiceFigure = () =>{
-    let modalBack = document.createElement('div');
-    modalBack.className = 'modalWindowBackground';
-
-    let choiceContainer = document.createElement('div');
-    choiceContainer.className = 'resultContainer';
-
-    let textChoce = document.createElement('div');
-    textChoce.className = 'textResult';
-    textChoce.innerText = 'Выберите фигуру';
-    
-    let cross = document.createElement('div');
-    cross.className = 'figursModalWindow';
-    cross.innerText = 'x';
-
-    let zero = document.createElement('div');
-    zero.className = 'figursModalWindow';
-    zero.innerText = 'o';
-
-    let contaonerFigure = document.createElement('div');
-    contaonerFigure.className = 'contaonerFigure';
-    contaonerFigure.appendChild(cross);
-    contaonerFigure.appendChild(zero);
-
-    choiceContainer.appendChild(textChoce);
-    choiceContainer.appendChild(contaonerFigure);
-
-    modalBack.appendChild(choiceContainer);
-    document.body.appendChild(modalBack);
-
-    cross.addEventListener("click", deleteResultModal)
-      
-
-    if(zero.addEventListener("click", deleteResultModal)){
-        playerFigure = 'o';
-        botFigure = 'x';
-    }
-    
-}
-
-choiceFigure();
-
+//STAFF
 function clearGameCells() {
-    for (var i = 0; i < arrData.length; i++) {
-        arrData[i].textContent = null;
-        arrData[i].style.color = "black";
+    for (var i = 0; i < cellElementsArray.length; i++) {
+        cellElementsArray[i].textContent = null;
+        cellElementsArray[i].style.color = "white";
     };
 }
 
-
-//конкатинация элементов массива arrData в строки
-let concat = (a, b, c) => {
-    let result = arrData[a].textContent + arrData[b].textContent + arrData[c].textContent;
+//конкатинация элементов массива cellElementsArray в строки
+function concat(a, b, c) {
+    let result = cellElementsArray[a].textContent + cellElementsArray[b].textContent + cellElementsArray[c].textContent;
 
     if (result === "xxx" || result === "ooo") {
         return result;
     }
 }
 
-let changeColorAndStop = (a, b, c, winner) => {
+function changeElementsColor(a, b, c) {
 
-    arrData[a].style.color = "red";
-    arrData[b].style.color = "red";
-    arrData[c].style.color = "red";
+    cellElementsArray[a].style.color = "red";
+    cellElementsArray[b].style.color = "red";
+    cellElementsArray[c].style.color = "red";
 
-    isGameStopped = true;
-
-    openModalWindow(winner);
-}
-
-let checkWin = () => {
-    for (let i = 0; i < 3; i++) {
-        let result = concat(i, i + 3, i + 6);
-
-        if (result === "xxx") {
-            changeColorAndStop(i, i + 3, i + 6, 'X');
-        }
-        if (result === "ooo") {
-            changeColorAndStop(i, i + 3, i + 6, 'O');
-        }
-    }
-
-    for (let i = 0; i <= 6; i += 3) {
-        let result = concat(i, i + 1, i + 2);
-        if (result === "xxx") {
-            changeColorAndStop(i, i + 1, i + 2, 'X');
-        }
-        if (result === "ooo") {
-            changeColorAndStop(i, i + 1, i + 2, 'O');
-        }
-    }
-
-    result = concat(0, 4, 8);
-    if (result === "xxx") {
-        changeColorAndStop(0, 4, 8, 'X');
-    };
-    if (result === "ooo") {
-        changeColorAndStop(0, 4, 8, 'O');
-    };
-
-    result = concat(2, 4, 6);
-    if (result === "xxx") {
-        changeColorAndStop(2, 4, 6, 'X');
-    };
-    if (result === "ooo") {
-        changeColorAndStop(2, 4, 6, 'O');
-    };
-};
-
-function botMove() {
-
-    var canMove = false;
-
-    for (var i = 0; i < arrData.length; i++) {
-        if (!arrData[i].textContent) {
-            canMove = true;
-            break;
-        }
-    };
-
-    while (canMove) {
-        randIndex = Math.floor(Math.random() * arrData.length);
-        randElement = arrData[randIndex];
-        if (randElement.textContent) continue;
-        randElement.textContent = botFigure;
-        break;
-    };
-
-    return canMove;
-};
-
-function restartGame() {
-    deleteResultModal();
-    clearGameCells();
-    isGameStopped = false;
 }
 
 // MODAL WINDOWS
-function openModalWindow(winner) {
+function createChoiceWindow() {
+    isGameStopped = true;
+    let modalBG = document.createElement('div');
+    modalBG.className = 'modalWindowBackground';
+
+    let choiceContainer = document.createElement('div');
+    choiceContainer.className = 'resultContainer';
+
+    let textChoice = document.createElement('div');
+    textChoice.className = 'textResult';
+    textChoice.innerText = 'Выберите фигуру';
+    textChoice.style.color = 'black';
+    
+    let  createFigureCross = document.createElement('div');
+    createFigureCross.className = 'figuresModalWindow';
+    createFigureCross.innerText = 'x';
+
+    let createFigureZero = document.createElement('div');
+    createFigureZero.className = 'figuresModalWindow';
+    createFigureZero.innerText = 'o';
+
+    let containerFigures = document.createElement('div');
+    containerFigures.className = 'containerFigures';
+    containerFigures.appendChild(createFigureCross);
+    containerFigures.appendChild(createFigureZero);
+
+    choiceContainer.appendChild(textChoice);
+    choiceContainer.appendChild(containerFigures);
+
+    modalBG.appendChild(choiceContainer);
+    document.body.appendChild(modalBG);
+
+    createFigureCross.addEventListener("click", function (event) {
+        playerFigure = 'x';
+        botFigure = 'o';
+        isGameStopped = false;
+        deleteResultModal()
+    })
+      
+
+    createFigureZero.addEventListener("click", function (event) {  
+        playerFigure = 'o';
+        botFigure = 'x';
+        isBotTurn = true;
+        isGameStopped = false;
+        deleteResultModal()
+    })
+    
+}
+
+function openResultWindow(winner) {
 
     let modalBackground = document.createElement('div');
     modalBackground.className = 'modalWindowBackground';
@@ -158,6 +98,7 @@ function openModalWindow(winner) {
     let textResult = document.createElement('div');
     textResult.className = 'textResult';
     textResult.innerText = "Победил : " + winner;
+    textResult.style.color = "black";
 
     resultContainer.appendChild(textResult);
 
@@ -180,31 +121,149 @@ function openModalWindow(winner) {
 
 function deleteResultModal() {
     let modalWindow = document.querySelector('.modalWindowBackground');
-    modalWindow.remove();   
+    if (modalWindow) modalWindow.remove();   
 }
 
 
+//GAME LOGIC
 
+function getWinner() {
+    let result = '';
+
+    for (let i = 0; i < 3; i++) {
+        result = concat(i, i + 3, i + 6);
+
+        if (result === "xxx") {
+            changeElementsColor(i, i + 3, i + 6);
+            return 'x';
+        }
+
+        if (result === "ooo") {
+            changeElementsColor(i, i + 3, i + 6);
+            return 'o';
+        }
+    }
+
+    for (let i = 0; i <= 6; i += 3) {
+        result = concat(i, i + 1, i + 2);
+
+        if (result === "xxx") {
+            changeElementsColor(i, i + 1, i + 2);
+            return 'x';
+        }
+
+        if (result === "ooo") {
+            changeElementsColor(i, i + 1, i + 2);
+            return 'o';
+        }
+    }
+
+    result = concat(0, 4, 8);
+    if (result === "xxx") {
+        changeElementsColor(0, 4, 8);
+        return 'x';
+    }
+
+    if (result === "ooo") {
+        changeElementsColor(0, 4, 8);
+        return 'o';
+    }
+
+    result = concat(2, 4, 6);
+    if (result === "xxx") {
+        changeElementsColor(2, 4, 6);
+        return 'x';
+    }
+
+    if (result === "ooo") {
+        changeElementsColor(2, 4, 6);
+        return 'o';
+    }
+
+    return '';
+
+};
+
+function checkEmptyFields() {
+    var canMove = false;
+    for (var i = 0; i < cellElementsArray.length; i++) {
+        if (!cellElementsArray[i].textContent) {
+            canMove = true;
+            break;
+        }
+    }
+    return canMove;
+}
+
+function setGameScore(winner) {
+
+    if(winner == playerFigure) {
+        scorePlayer = scorePlayer + 1;
+    }
+    else if(winner == botFigure) {
+        scoreBot = scoreBot + 1;
+    }
+    let infoBlock = document.querySelector('.infoBlock');
+    infoBlock.innerText = scorePlayer + ':' + scoreBot;
+
+}
+
+function botMove() {
+
+    while (true) {
+        randIndex = Math.floor(Math.random() * cellElementsArray.length);
+        randElement = cellElementsArray[randIndex];
+        if (randElement.textContent) continue;
+        randElement.textContent = botFigure;
+        break;
+    }
+
+    isBotTurn = false;
+}
+
+function restartGame() {
+    deleteResultModal();
+    clearGameCells();
+    isGameStopped = false;
+    createChoiceWindow();
+}
 
 //INIT GAME
-for (var i = 0; i < arrData.length; i++) {
+createChoiceWindow();
 
-    arrData[i].addEventListener("click", function (event) {
+for (var i = 0; i < cellElementsArray.length; i++) {
 
-        if (isGameStopped) return;
+    cellElementsArray[i].addEventListener("click", function (event) {
+
+        if (isGameStopped || isBotTurn) return;
 
         if (event.target.textContent) return;
 
-        event.target.style.color = "black";
+        event.target.style.color = "white";
         event.target.textContent = playerFigure;
-
-        checkWin();
-
-        if (isGameStopped) return;
-
-        botMove();
-        checkWin();
-
+        isBotTurn = true;
     })
-};
+}
+
+setInterval(function() {
+    if (isGameStopped) return;
+
+    let winner = getWinner();
+    if (!checkEmptyFields() || winner != '') {
+        isGameStopped = true;
+
+        if (winner != '') { 
+            setGameScore(winner);
+            openResultWindow(winner);
+        }
+        else {
+            openResultWindow('Ничья');
+        }
+    }
+
+    if (isBotTurn && !isGameStopped) {
+        botMove();
+    }
+
+}, 300);
 
