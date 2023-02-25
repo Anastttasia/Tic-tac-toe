@@ -229,7 +229,6 @@ function restartGame() {
 }
 
 //INIT GAME
-createChoiceWindow();
 
 for (var i = 0; i < cellElementsArray.length; i++) {
 

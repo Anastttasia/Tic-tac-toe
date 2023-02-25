@@ -10,8 +10,116 @@ body {
     background-color: #333333;
 }
 
+.mainContainer {
+    max-width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nameBlock{
+    font-size: 30px;
+    padding: 20px 0 40px 0;
+}
+
+.containerExercise {
+    max-width: 80vw;
+    height: 100%;
+    background-color: #0b344d;
+    padding: 25px;
+}
+
+
+.tableWrapper  {
+    display: grid;
+    max-width: 100%;
+    grid-template-rows: 0.5fr 2fr;
+    grid-template-columns: 0.5fr 1fr 3fr 4fr;
+    grid-gap: 5px;
+}
+
+.cellTable {
+    background-color: #eeeeee;
+    color: black;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.cellTextTable{
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.imgLink{
+    width: 50px;
+    height: 50px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: #102031;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+.divider {
+    background-color: #ffffff;
+    opacity: 0.2;
+    margin: 60px 0 50px 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-radius: 0;
+    z-index: 2;
+}
+
+.textView{
+    font-size: 20px;
+    margin-left: 10px;
+    line-height: 2;
+    text-align: justify;
+}
+
+.textViewIndents{
+    font-size: 20px;
+    margin-left: 60px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.imageGrid{
+    display: flex;
+    justify-content: center;
+}
+
+.imageView{
+    width: 260px;
+    height: 460px;
+    margin: 20px;
+}
+
 .main{
-    width: 100%;
+    max-width: 100%;
     height: 50%;
     display: flex;
     flex-flow: column;
@@ -38,7 +146,7 @@ body {
 }
 
 .content {
-    width: 100vw;
+    max-width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +173,7 @@ body {
 
 .scoreGame{
     font-size: 40px;
-    width: 100vw;
+    max-width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -182,9 +290,56 @@ body {
     box-shadow: 2px 6px 3px rgba(0, 0, 0, 0.3);
 }
 
+@media screen and (max-width: 920px) {
 
+    .imageView{
+        width: 200px;
+        height: 380px;
+        margin: 15px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+
+    .textView{
+        font-size: 15px;
+        margin-left: 10px;
+    }
+    
+    .textViewIndents{
+        font-size: 15px;
+        margin-left: 30px;
+    }
+
+    .imageView{
+        width: 150px;
+        height: 320px;
+        margin: 10px;
+    }
+
+}
+@media screen and (max-width: 650px) {
+
+    .cellTable {
+        padding: 5px;
+        font-size: 13px;
+    }
+    
+    .cellTextTable{
+        padding: 5px;
+        font-size: 15px;
+    }
+}
 
 @media screen and (max-width: 553px) {
+
+
+
+    .imageView{
+        width: 120px;
+        height: 270px;
+        margin: 10px;
+    }
 
     .styleContainerScore{
         justify-content: space-around;
@@ -223,6 +378,31 @@ body {
 }
 
 @media screen and (max-width: 360px) {
+
+    .nameBlock{
+        font-size: 25px;
+    }
+
+    .cellTable {
+        padding: 5px;
+        font-size: 10px;
+    }
+    
+    .cellTextTable{
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .imgLink{
+        width: 30px;
+        height: 30px;
+    }
+
+    .imageView{
+        width: 80px;
+        height: 150px;
+        margin: 5px;
+    }
 
     .score{
         font-size: 30px;
