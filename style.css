@@ -11,7 +11,6 @@ body {
 }
 
 .mainContainer {
-    max-width: 100vw;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -19,51 +18,51 @@ body {
     align-items: center;
 }
 
-.nameBlock{
+.nameBlock {
+    width: 100%;
     display: flex;
     flex-direction: column;
     font-size: 30px;
     padding: 20px 0 40px 0;
-    
+
 }
-.buttonExercise{
+
+.buttonExercise {
     width: 100px;
     height: 20px;
     font-size: 18px;
     margin-top: 10px;
-    text-align:start;
+    text-align: start;
     color: #00cccc;
     background: transparent;
     border: none;
 }
 
-.buttonExercise:hover{
-    color:rgba(70, 138, 138, 0.9);
+.buttonExercise:hover {
+    color: rgba(70, 138, 138, 0.9);
 }
 
-.contentExercise{
+.contentExercise {
+    max-width: 100%;
     font-size: 18px;
     background-color: rgba(16, 32, 49, 0.4);
     padding: 12px;
     line-height: 1.5;
     text-align: justify;
     margin-top: 10px;
-    /* visibility: visible; */
     opacity: 1;
     transition: max-height 0.2s ease-out;
     display: none;
-    
 }
 
-.containerExercise {
-    max-width: 80vw;
+.visibleContainer {
+    width: 80vw;
     height: 100%;
     background-color: #0b344d;
     padding: 25px;
 }
 
-
-.tableWrapper  {
+.tableWrapper {
     display: grid;
     max-width: 100%;
     grid-template-rows: 0.5fr 2fr;
@@ -78,13 +77,13 @@ body {
     font-size: 20px;
 }
 
-.cellTextTable{
+.cellTextTable {
     padding: 5px;
     font-size: 20px;
     font-weight: 700;
 }
 
-.imgLink{
+.imgLink {
     width: 50px;
     height: 50px;
 }
@@ -92,9 +91,9 @@ body {
 .tooltip {
     position: relative;
     display: inline-block;
-  }
-  
-  .tooltip .tooltiptext {
+}
+
+.tooltip .tooltiptext {
     visibility: hidden;
     width: 220px;
     background-color: #102031;
@@ -107,11 +106,11 @@ body {
     top: 100%;
     left: 50%;
     margin-left: -60px;
-  }
-  
-  .tooltip:hover .tooltiptext {
+}
+
+.tooltip:hover .tooltiptext {
     visibility: visible;
-  }
+}
 
 .divider {
     background-color: #ffffff;
@@ -124,40 +123,40 @@ body {
     z-index: 2;
 }
 
-.textView{
+.textView {
     font-size: 20px;
     margin-left: 10px;
     line-height: 2;
     text-align: justify;
 }
 
-.textViewIndents{
+.textViewIndents {
     font-size: 20px;
     margin-left: 60px;
     line-height: 1.8;
     text-align: justify;
 }
 
-.imageGrid{
+.imageGrid {
     display: flex;
     justify-content: center;
 }
 
-.imageView{
+.imageView {
     width: 260px;
     height: 460px;
     margin: 20px;
 }
 
 
-.tableWrapperMistakes  {
+.tableWrapperMistakes {
     display: grid;
     max-width: 80%;
     grid-template-rows: 1fr;
     grid-template-columns: 2fr 5fr;
 }
 
-.cellTableMistakes{
+.cellTableMistakes {
     padding: 10px;
     font-size: 20px;
 }
@@ -170,9 +169,8 @@ body {
     justify-content: center;
 }
 
-.game{
+.game {
     margin: 50px 0 50px 0;
-    max-width: 100%;
     height: 50%;
     display: flex;
     flex-flow: column;
@@ -180,16 +178,16 @@ body {
     align-items: center;
 }
 
-.containerScore{
+.containerScore {
     width: 326px;
     font-size: 20px;
     margin: 0;
-    padding:  0 20px 0 20px;
+    padding: 0 20px 0 20px;
     display: flex;
     flex-flow: column;
 }
 
-.score{
+.score {
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -205,14 +203,14 @@ body {
     align-items: center;
 }
 
-.styleContainerScore{
+.styleContainerScore {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     margin: 0;
 }
 
-.infoBlock{
+.infoBlock {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -224,7 +222,7 @@ body {
     padding: 10px;
 }
 
-.scoreGame{
+.scoreGame {
     font-size: 40px;
     max-width: 100vw;
     height: 100vh;
@@ -293,7 +291,7 @@ body {
     width: 180px;
     height: 30px;
     margin: 10px;
-    background-color:  rgba(11, 52, 77, 0.6);
+    background-color: rgba(11, 52, 77, 0.6);
     font-size: 20px;
     border-radius: 5%;
 }
@@ -343,24 +341,25 @@ body {
     box-shadow: 2px 6px 3px rgba(0, 0, 0, 0.3);
 }
 
-.footer{
-    max-width: 100%;
+.footer {
+    width: 100%;
     height: 250px;
     background-color: #333333;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 100px;
 }
 
-.footerText{
+.footerText {
     font-size: 10px;
-    margin-top: 10px ;
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 920px) {
 
-    .imageView{
+    .imageView {
         width: 200px;
         height: 380px;
         margin: 15px;
@@ -369,31 +368,32 @@ body {
 
 @media screen and (max-width: 730px) {
 
-    .textView{
+    .textView {
         font-size: 15px;
         margin-left: 10px;
     }
-    
-    .textViewIndents{
+
+    .textViewIndents {
         font-size: 15px;
         margin-left: 30px;
     }
 
-    .imageView{
+    .imageView {
         width: 150px;
         height: 320px;
         margin: 10px;
     }
 
 }
+
 @media screen and (max-width: 650px) {
 
     .cellTable {
         padding: 5px;
         font-size: 13px;
     }
-    
-    .cellTextTable{
+
+    .cellTextTable {
         padding: 5px;
         font-size: 15px;
     }
@@ -403,19 +403,24 @@ body {
         height: 300px;
         margin: 30px 0 40px 0;
     }
+
+    .contentExercise {
+        font-size: 15px;
+        padding: 10px;
+    }
 }
 
 @media screen and (max-width: 553px) {
 
 
 
-    .imageView{
+    .imageView {
         width: 120px;
         height: 270px;
         margin: 10px;
     }
 
-    .styleContainerScore{
+    .styleContainerScore {
         justify-content: space-around;
     }
 
@@ -448,12 +453,12 @@ body {
         margin: 10px;
         font-size: 18px;
     }
-    
+
 }
 
 @media screen and (max-width: 360px) {
 
-    .nameBlock{
+    .nameBlock {
         font-size: 25px;
     }
 
@@ -461,27 +466,27 @@ body {
         padding: 5px;
         font-size: 10px;
     }
-    
-    .cellTextTable{
+
+    .cellTextTable {
         padding: 5px;
         font-size: 12px;
     }
 
-    .imgLink{
+    .imgLink {
         width: 30px;
         height: 30px;
     }
 
-    .imageView{
+    .imageView {
         width: 80px;
         height: 150px;
         margin: 5px;
     }
 
-    .score{
+    .score {
         font-size: 30px;
     }
-    
+
     .cell {
         width: 80px;
         height: 80px;

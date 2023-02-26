@@ -1,72 +1,85 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    background-color: #333333;
-    max-width: 100%;
-    height: 55px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    z-index: 2;
-    margin-bottom: 60px;
-    padding: 2px;
-  }
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #333333;
+  max-width: 100%;
+  height: 55px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 2;
+  margin-bottom: 60px;
+  padding: 2px;
+}
+
+.containerA {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-left: 100px;
+}
+
+.buttonNavgation {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 4px #333333;
+  margin: 0 20px 0 20px;
+  font-size: 15px;
+}
+
+.buttonNavgation:hover {
+  border-bottom: 3px solid #00cccc;
+}
+
+.navgationLink {
+
+  text-decoration: none;
+  color: white;
+  background: transparent;
+  border: none;
+}
+
+.navgationLink:hover {
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+@media screen and (max-width: 760px) {
 
   .containerA {
-    display: flex;
-    flex-flow: row nowrap;
-    margin-left: 100px;
+    margin-left: 50px;
   }
 
-  .navigationMenu{
-    height: 55px;
-    display: flex;
-    align-items:center;
-    border-bottom: solid 4px #333333;
-    margin: 0 20px 0 20px
+  .buttonNavgation {
+    height: 35px;
+    margin: 0 15px 0 5px;
+    font-size: 15px;
   }
 
-  .navigationMenu:hover{
-    border-bottom: 3px solid #00cccc;
-  }
-  
-  .navgationLink {
-    font-size: 13px;
-    text-decoration: none;
-    color: white;
+}
+
+@media screen and (max-width: 420px) {
+
+  .containerA {
+    margin-left: 15px;
   }
 
-  .navgationLink:hover {
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  .buttonNavgation {
+    margin: 0 10px 0 2px;
+    font-size: 12px;
   }
+}
 
 
-  @media screen and (max-width: 760px) {
-  
-    .containerA {
-        margin-left: 50px;
-      }
-
-    .navgationLink {
-        font-size: 11px;
-
-      }
+@media screen and (max-width: 360px) {
+  .buttonNavgation {
+    margin: 0 5px 0 2px;
+    font-size: 10px;
   }
-
-  @media screen and (max-width: 420px) {
-  
-    .containerA {
-        margin-left: 15px;
-      }
-
-    .navgationLink {
-        font-size: 10px;
-
-      }
-  }
+}
